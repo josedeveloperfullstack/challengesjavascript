@@ -86,14 +86,14 @@ function challengethree() {
   let numberLess = [];
 
   const numbersList3 = numless.value.split(',').map(str => parseInt(str.trim()));
-  const f = function(prefix, remaining) {
-      for (let i = 0; i < remaining.length; i++) {
-          numberLess.push(prefix.concat(remaining[i]));
-          f(prefix.concat(remaining[i]), remaining.slice(i + 1));
-      }
-  }
+  const f = function(prefix, numbersList3) {
+    for (let i = 0; i < numbersList3.length; i++) {
+        numberLess.push(prefix.concat(numbersList3[i]));
+        f(prefix.concat(numbersList3[i]), numbersList3.slice(i + 1));
+    }
+}
 
-  f([], numbersList3);
+f([], numbersList3);
   const allSums = numberLess.map(combination => combination.reduce((a, b) => a + b, 0));
   const sumasOrdenadas = [...allSums].sort((a, b) => a - b);
 
